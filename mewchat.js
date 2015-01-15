@@ -1,5 +1,3 @@
-Messages = new Mongo.Collection("messages");
-
 if (Meteor.isClient) {
   Template.message.helpers({
     messages: function () {
@@ -7,11 +5,11 @@ if (Meteor.isClient) {
     }
   });
 
-  Template.body.events({
+  Template.write.events({
     "submit .new-message": function (event) {
       var text = event.target.text.value;
       var author = "authornametest";
-      
+
       Messages.insert({
         text: text,
         author: author,
@@ -27,5 +25,6 @@ if (Meteor.isClient) {
 
 if (Meteor.isServer) {
   Meteor.startup(function () {
+    Messages = new Mongo.Collection("messages");
   });
 }
