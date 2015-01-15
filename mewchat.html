@@ -1,14 +1,28 @@
 <head>
-  <title>mewchat</title>
+  <title>MewChat</title>
 </head>
 
 <body>
-  <h1>Welcome to Meteor!</h1>
+  <h1>Welcome to MewChat!</h1>
 
-  {{> hello}}
+  {{> chat}}
 </body>
 
-<template name="hello">
-  <button>Click Me</button>
-  <p>You've pressed the button {{counter}} times.</p>
+<template name="chat">
+<ul>
+  {{#each messages}}
+    {{> message}}
+  {{/each}}
+</ul>
+{{> write}}
+</template>
+
+<template name="message">
+<li>{{author}} ({{sentAt}}): {{text}}</li>
+</template>
+
+<template name="write">
+<form class="new-message">
+  <input type="text" name="text" placeholder="Type your message" />
+</form>
 </template>
