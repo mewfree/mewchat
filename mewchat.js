@@ -9,7 +9,7 @@ if (Meteor.isClient) {
 
   Template.message.helpers({
     hour: sentAt.getHours().toString(),
-    min: sentAt.getMinutes().toString();
+    min: sentAt.getMinutes().toString()
     });
 
   Template.write.events({
