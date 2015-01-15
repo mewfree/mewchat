@@ -7,7 +7,7 @@ if (Meteor.isClient) {
     }
   });
 
-  Template.write.events({
+  Template.body.events({
     "submit .new-message": function (event) {
       var text = event.target.text.value;
       var author = "authornametest";
