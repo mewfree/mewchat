@@ -1,5 +1,7 @@
+Messages = new Mongo.Collection("messages");
+
 if (Meteor.isClient) {
-  Template.message.helpers({
+  Template.chat.helpers({
     messages: function () {
       return Messages.find({});
     }
@@ -8,16 +10,14 @@ if (Meteor.isClient) {
   Template.write.events({
     "submit .new-message": function (event) {
       var text = event.target.text.value;
-      var author = "authornametest";
-
+      var author = Math.random().toString(36).substring(7);
+      
       Messages.insert({
         text: text,
         author: author,
         sentAt: new Date()
       });
-
       event.target.text.value = "";
-
       return false;
     }
   });
@@ -25,6 +25,5 @@ if (Meteor.isClient) {
 
 if (Meteor.isServer) {
   Meteor.startup(function () {
-    Messages = new Mongo.Collection("messages");
   });
 }
