@@ -1,7 +1,8 @@
 /* CSS declarations go here */
 body {
-  background-color: #C0C0C0;
+  background-color: #000000;
   font-family: serif;
+  color: #00FF00;
 }
 
 h1 {
