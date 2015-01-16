@@ -28,12 +28,12 @@ if (Meteor.isClient) {
       var text = event.target.text.value;
       var anon = Session.get("anon");
       var color = Session.get("color");
+      Session.setPersistent("nick", event.target.author.value);
       //users can stay anonymous, if so, randomize a author name
       if (event.target.author.value == "") {
         var author = anon;
       } else {
         var author = event.target.author.value;
-        Session.setPersistent("nick", author);
       }
 
       //if message is not blank, insert in db
@@ -55,9 +55,6 @@ if (Meteor.isClient) {
   Template.write.helpers({
     nick: function () {
       return Session.get("nick");
-    },
-    color: function () {
-      return Session.get("color");
     }
   });
 }
