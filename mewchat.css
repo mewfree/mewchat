@@ -1,1 +1,9 @@
 /* CSS declarations go here */
+.anon {
+  display:none;
+}
+
+
+li strong:hover .anon {
+  display: block;
+}
