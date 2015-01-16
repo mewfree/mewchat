@@ -9,7 +9,7 @@ if (Meteor.isClient) {
   }
 
   if (Session.get("color") == "") {
-    Session.setPersistent("color", randomColor({hue: 'green'});
+    Session.setPersistent("color", randomColor({hue: 'green'}));
   }
 
   Template.chat.helpers({
