@@ -55,7 +55,7 @@ if (Meteor.isClient) {
   Template.write.helpers({
     nick: function () {
       return Session.get("nick");
-    }
+    },
     color: function () {
       return Session.get("color");
     }
