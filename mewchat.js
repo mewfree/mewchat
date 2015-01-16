@@ -10,7 +10,11 @@ if (Meteor.isClient) {
   Template.write.events({
     "submit .new-message": function (event) {
       var text = event.target.text.value;
-      var author = Math.random().toString(36).substring(7);
+      if (event.target.author.value == "") {
+        var author = Math.random().toString(36).substring(7);
+      } else {
+        var author = event.target.author.value
+      }
       
       Messages.insert({
         text: text,
