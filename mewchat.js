@@ -3,6 +3,7 @@ Messages = new Mongo.Collection("messages");
 if (Meteor.isClient) {
   Session.setDefaultPersistent("anon", "")
   Session.setDefaultPersistent("color", "")
+  Session.setDefaultPersistent("nick", "")
 
   if (Session.get("anon") == "") {
     Session.setPersistent("anon", Math.random().toString(36).substring(7));
@@ -32,6 +33,7 @@ if (Meteor.isClient) {
         var author = anon;
       } else {
         var author = event.target.author.value;
+        Session.setPersistent("nick") = author;
       }
 
       //if message is not blank, insert in db
@@ -47,6 +49,12 @@ if (Meteor.isClient) {
       //clear the text field so the user can enter a new message
       event.target.text.value = "";
       return false;
+    }
+  });
+
+  Template.write.helpers({
+    nick: function () {
+      return Session.get("nick");
     }
   });
 }
