@@ -3,7 +3,7 @@ Messages = new Mongo.Collection("messages");
 if (Meteor.isClient) {
   Template.chat.helpers({
     messages: function () {
-      return Messages.find({}, {sort: {sentAt: -1}, limit: 20}).reverse();
+      return Messages.find({}, {sort: {sentAt: -1}, limit: 20});
     }
   });
 
