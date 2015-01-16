@@ -1,6 +1,8 @@
 /* CSS declarations go here */
 .anon {
-  display:none;
+  display: none;
+  position: absolute;
+  border: 1px solid black;
 }
 
 
