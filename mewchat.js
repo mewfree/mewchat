@@ -16,11 +16,13 @@ if (Meteor.isClient) {
         var author = event.target.author.value;
       }
       
-      Messages.insert({
-        text: text,
-        author: author,
-        sentAt: new Date()
-      });
+      if (text != "") {
+        Messages.insert({
+          text: text,
+          author: author,
+          sentAt: new Date()
+        });
+      }
       event.target.text.value = "";
       return false;
     }
