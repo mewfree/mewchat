@@ -11,12 +11,14 @@ if (Meteor.isClient) {
     }
   });
 
+  Session.set("anon", Math.random().toString(36).substring(7));
+
   Template.write.events({
     "submit .new-message": function (event) {
       var text = event.target.text.value;
       //users can stay anonymous, if so, randomize a author name
       if (event.target.author.value == "") {
-        var author = Math.random().toString(36).substring(7);
+        var author = Session.get("anon");
       } else {
         var author = event.target.author.value;
       }
