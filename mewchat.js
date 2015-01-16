@@ -7,11 +7,6 @@ if (Meteor.isClient) {
     }
   });
 
-  Template.message.helpers({
-    hour: sentAt.getHours().toString(),
-    min: sentAt.getMinutes().toString()
-    });
-
   Template.write.events({
     "submit .new-message": function (event) {
       var text = event.target.text.value;
