@@ -43,7 +43,9 @@ if (Meteor.isClient) {
           author: author,
           anon: anon,
           color: color,
-          sentAt: new Date()
+          sentAt: new Date(),
+          sentAtH: new Date().getHours(),
+          sentAtM: new Date().getMinutes()
         });
       }
       //clear the text field so the user can enter a new message
