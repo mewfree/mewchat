@@ -16,9 +16,10 @@ if (Meteor.isClient) {
   Template.write.events({
     "submit .new-message": function (event) {
       var text = event.target.text.value;
+      var anon = Session.get("anon");
       //users can stay anonymous, if so, randomize a author name
       if (event.target.author.value == "") {
-        var author = Session.get("anon");
+        var author = anon;
       } else {
         var author = event.target.author.value;
       }
@@ -28,6 +29,7 @@ if (Meteor.isClient) {
         Messages.insert({
           text: text,
           author: author,
+          anon: anon,
           sentAt: new Date()
         });
       }
