@@ -56,6 +56,9 @@ if (Meteor.isClient) {
     nick: function () {
       return Session.get("nick");
     }
+    color: function () {
+      return Session.get("color");
+    }
   });
 }
 
