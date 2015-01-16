@@ -11,7 +11,7 @@ if (Meteor.isClient) {
     }
   });
 
-  Session.set("anon", Math.random().toString(36).substring(7));
+  Session.setPersistent("anon", Math.random().toString(36).substring(7));
 
   Template.write.events({
     "submit .new-message": function (event) {
