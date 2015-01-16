@@ -1,6 +1,17 @@
 Messages = new Mongo.Collection("messages");
 
 if (Meteor.isClient) {
+  Session.setDefaultPersistent("anon", "")
+  Session.setDefaultPersistent("color", "")
+
+  if (Session.get("anon") == "") {
+    Session.setPersistent("anon", Math.random().toString(36).substring(7));
+  }
+
+  if (Session.get("color") == "") {
+    Session.setPersistent("color", randomColor({hue: 'green'});
+  }
+
   Template.chat.helpers({
     messages: function () {
       //we're looking for the last 25 messages, so we have to sort from
@@ -11,11 +22,11 @@ if (Meteor.isClient) {
     }
   });
 
-  Session.setDefaultPersistent("anon", "")
-
-  if (Session.get("anon") == "") {
-    Session.setPersistent("anon", Math.random().toString(36).substring(7));
-  }
+  Template.message.helpers({
+    color: function () {
+      return Session.get("color");
+    }
+  });
 
   Template.write.events({
     "submit .new-message": function (event) {
