@@ -36,6 +36,13 @@ if (Meteor.isClient) {
         var author = event.target.author.value;
       }
 
+      //date stuff
+      var date = new Date();
+      var dateh = date.getHours();
+      var dateh = ("0" + dateh).slice(-2);
+      var datem = date.getMinutes();
+      var datem = ("0" + datem).slice(-2);
+
       //if message is not blank, insert in db
       if (text != "") {
         Messages.insert({
@@ -44,8 +51,8 @@ if (Meteor.isClient) {
           anon: anon,
           color: color,
           sentAt: TimeSync.serverTime(),
-          sentAtH: new Date().getHours(),
-          sentAtM: new Date().getMinutes()
+          sentAtH: dateh,
+          sentAtM: datem
         });
       }
       //clear the text field so the user can enter a new message
