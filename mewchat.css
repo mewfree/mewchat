@@ -1,10 +1,15 @@
 /* CSS declarations go here */
 body {
   background-color: #C0C0C0;
+  font-family: serif;
 }
 
 h1 {
   text-align: center;
+}
+
+input {
+  background: #E8E8E8;
 }
 
 .anon {
@@ -18,6 +23,7 @@ h1 {
 
 ul li {
   list-style-type: none;
+  font-family: monospace;
 }
 
 li strong:hover .anon {
