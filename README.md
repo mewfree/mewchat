@@ -14,5 +14,6 @@ Features:
 
 
 To-do:
+* Add a notification (change in <title> and maybe some sound (can desactivate)) when a new message arrives. Title Notifier JS makes Meteor crash.
 * Let users choose a color
 * Let users choose how many messages they want to see
