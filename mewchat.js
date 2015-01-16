@@ -3,7 +3,7 @@ Messages = new Mongo.Collection("messages");
 if (Meteor.isClient) {
   Template.chat.helpers({
     messages: function () {
-      return Messages.find({});
+      return Messages.find({}, {limit: 20});
     }
   });
 
