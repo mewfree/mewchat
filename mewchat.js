@@ -22,16 +22,11 @@ if (Meteor.isClient) {
     }
   });
 
-  Template.message.helpers({
-    color: function () {
-      return Session.get("color");
-    }
-  });
-
   Template.write.events({
     "submit .new-message": function (event) {
       var text = event.target.text.value;
       var anon = Session.get("anon");
+      var color = Session.get("color");
       //users can stay anonymous, if so, randomize a author name
       if (event.target.author.value == "") {
         var author = anon;
@@ -45,6 +40,7 @@ if (Meteor.isClient) {
           text: text,
           author: author,
           anon: anon,
+          color: color,
           sentAt: new Date()
         });
       }
