@@ -24,7 +24,7 @@ if (Meteor.isClient) {
         var author = event.target.author.value;
       }
 
-      //if message is not blank, insert in db 
+      //if message is not blank, insert in db
       if (text != "") {
         Messages.insert({
           text: text,
