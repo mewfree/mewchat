@@ -19,7 +19,7 @@ if (Meteor.isClient) {
       //older to newer, and limit the result to 25, but we still want it
       //from newer to older (common practice in webchats) so we fetch and
       //reverse the array!
-      return Messages.find({}, {sort: {$natural: -1}, limit: 30}).fetch().reverse();
+      return Messages.find({}, {sort: {sentAt: -1}, limit: 30}).fetch().reverse();
     }
   });
 
@@ -43,7 +43,7 @@ if (Meteor.isClient) {
           author: author,
           anon: anon,
           color: color,
-          sentAt: new Date(),
+          sentAt: TimeSync.serverTime(),
           sentAtH: new Date().getHours(),
           sentAtM: new Date().getMinutes()
         });
