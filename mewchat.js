@@ -33,7 +33,7 @@ if (Meteor.isClient) {
         var author = anon;
       } else {
         var author = event.target.author.value;
-        Session.setPersistent("nick") = author;
+        Session.setPersistent("nick", author);
       }
 
       //if message is not blank, insert in db
