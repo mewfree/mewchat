@@ -23,6 +23,12 @@ if (Meteor.isClient) {
     }
   });
 
+  Template.chat.events({
+    'click, focus, keypress': function (event) {
+      titlenotifier.reset();
+    }
+  });
+
   Template.write.events({
     "submit .new-message": function (event) {
       var text = event.target.text.value;
@@ -54,6 +60,7 @@ if (Meteor.isClient) {
           sentAtH: dateh,
           sentAtM: datem
         });
+        titlenotifier.add();
       }
       //clear the text field so the user can enter a new message
       event.target.text.value = "";
