@@ -8,6 +8,7 @@ Features:
 * Reactive webchat built in Meteor
 * Anonymous mode
 * Each user is identified by a unique ID to protect from nick theft
+* Uses https://github.com/okgrow/meteor-persistent-session for persistent sessions (across pages reload)
 
 
 To-do:
