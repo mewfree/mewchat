@@ -13,7 +13,7 @@ if (Meteor.isClient) {
       if (event.target.author.value == "") {
         var author = Math.random().toString(36).substring(7);
       } else {
-        var author = event.target.author.value
+        var author = event.target.author.value;
       }
       
       Messages.insert({
