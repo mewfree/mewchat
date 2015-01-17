@@ -78,7 +78,7 @@ if (Meteor.isClient) {
     }
   });
 
-  Template.write.rendered({
+  Template.write.rendered = function() {
     Session.setPersistent("notif", 0);
   });
 
