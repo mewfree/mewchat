@@ -15,19 +15,6 @@ if (Meteor.isClient) {
     Session.setPersistent("color", randomColor({hue: 'green'}));
   }
 
-  var init = true;
-  var handle = Messages.find().observe({
-    added: function (item) {
-      if (!init) {
-        var notifv = Session.get("notif");
-        notifv++;
-        Session.setPersistent("notif", notifv);
-      }
-    }
-  });
-  init = false;
-
-  document.title = "("+Session.get("notif")+") MewChat";
 
   Template.chat.helpers({
     messages: function () {
@@ -88,6 +75,24 @@ if (Meteor.isClient) {
       return Session.get("nick");
     }
   });
+
+  var init = true;
+  var handle = Messages.find().observe({
+    added: function (item) {
+      if (!init) {
+        var notifv = Session.get("notif");
+        notifv++;
+        Session.setPersistent("notif", notifv);
+      }
+    }
+  });
+  init = false;
+
+  if (Session.get("notif") == 0) {
+    document.title = "MewChat";
+  } else {
+    document.title = "("+Session.get("notif")+") MewChat";
+  }
 }
 
 if (Meteor.isServer) {
