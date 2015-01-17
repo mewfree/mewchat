@@ -1,9 +1,11 @@
 Messages = new Mongo.Collection("messages");
 
 if (Meteor.isClient) {
-  Session.setDefaultPersistent("anon", "")
-  Session.setDefaultPersistent("color", "")
-  Session.setDefaultPersistent("nick", "")
+  //Sessions stuff...
+  Session.setDefaultPersistent("anon", "");
+  Session.setDefaultPersistent("color", "");
+  Session.setDefaultPersistent("nick", "");
+  Session.setDefaultPersistent("notif", 0);
 
   if (Session.get("anon") == "") {
     Session.setPersistent("anon", Math.random().toString(36).substring(7));
@@ -12,6 +14,16 @@ if (Meteor.isClient) {
   if (Session.get("color") == "") {
     Session.setPersistent("color", randomColor({hue: 'green'}));
   }
+
+  var init = true;
+  var handle = Messages.find().observe({
+    added: function (item) {
+      if (!init) {
+        Session.setPersistent("notif", Session.get("notif")++);
+      }
+    }
+  });
+  init = false;
 
   Template.chat.helpers({
     messages: function () {
@@ -25,7 +37,7 @@ if (Meteor.isClient) {
 
   Template.chat.events({
     "click, focus, keypress": function (event) {
-      document.title = "MewChat";
+      Session.setPersistent("notif", 0);
     }
   });
 
@@ -60,7 +72,6 @@ if (Meteor.isClient) {
           sentAtH: dateh,
           sentAtM: datem
         });
-        document.title = "(*) MewChat";
       }
       //clear the text field so the user can enter a new message
       event.target.text.value = "";
