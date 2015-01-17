@@ -11,9 +11,9 @@ Features:
 * Uses https://github.com/okgrow/meteor-persistent-session for persistent sessions (across pages reload)
 * Uses https://github.com/davidmerfield/randomColor for random green color
 * Uses https://github.com/mizzao/meteor-timesync to get server time due to issued with clients not in sync
+* Number of unread messages is shown in the <title>
 
 
 To-do:
-* Add a notification (change in <title> and maybe some sound (can desactivate)) when a new message arrives. Title Notifier JS makes Meteor crash.
 * Let users choose a color
 * Let users choose how many messages they want to see
