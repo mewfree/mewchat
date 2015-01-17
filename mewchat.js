@@ -63,6 +63,8 @@ if (Meteor.isClient) {
           sentAtH: dateh,
           sentAtM: datem
         });
+      //no need for a notif on messages we send ourselves!
+      Session.setPersistent("notif", 0);
       }
       //clear the text field so the user can enter a new message
       event.target.text.value = "";
