@@ -15,30 +15,6 @@ if (Meteor.isClient) {
     Session.setPersistent("color", randomColor({hue: 'green'}));
   }
 
-  Tracker.autorun(function () {
-    //init is needed because we have to wait for the first
-    //messages to be loaded first
-    var initializing = true;
-    Messages.find().observe({
-      added: function (item) {
-        if (!initializing) {
-          var notifv = Session.get("notif");
-          notifv++;
-          Session.setPersistent("notif", notifv);
-          //if new message, we increment the previous notif count
-        }
-      }
-    });
-    initializing = false;
-
-    if (Session.get("notif") == 0) {
-      document.title = "MewChat";
-    } else {
-      //showing the number of unread messages
-      document.title = "("+Session.get("notif")+") MewChat";
-    }
-  });
-
   Template.chat.helpers({
     messages: function () {
       //we're looking for the last 25 messages, so we have to sort from
@@ -103,8 +79,32 @@ if (Meteor.isClient) {
   });
 
   Template.write.rendered = function() {
-    Session.setPersistent("notif", 0);
+    setTimeout(Session.setPersistent("notif", 0),3000);
   };
+
+  Tracker.autorun(function () {
+    //init is needed because we have to wait for the first
+    //messages to be loaded first
+    var initializing = true;
+    Messages.find().observe({
+      added: function (item) {
+        if (!initializing) {
+          var notifv = Session.get("notif");
+          notifv++;
+          Session.setPersistent("notif", notifv);
+          //if new message, we increment the previous notif count
+        }
+      }
+    });
+    initializing = false;
+
+    if (Session.get("notif") == 0) {
+      document.title = "MewChat";
+    } else {
+      //showing the number of unread messages
+      document.title = "("+Session.get("notif")+") MewChat";
+    }
+  });
 }
 
 if (Meteor.isServer) {
