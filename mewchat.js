@@ -19,7 +19,9 @@ if (Meteor.isClient) {
   var handle = Messages.find().observe({
     added: function (item) {
       if (!init) {
-        Session.setPersistent("notif", Session.get("notif")++);
+        var notifv = Session.get("notif");
+        notifv++;
+        Session.setPersistent("notif", notifv);
       }
     }
   });
