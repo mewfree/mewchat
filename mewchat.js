@@ -15,7 +15,6 @@ if (Meteor.isClient) {
     Session.setPersistent("color", randomColor({hue: 'green'}));
   }
 
-
   Template.chat.helpers({
     messages: function () {
       //we're looking for the last 25 messages, so we have to sort from
@@ -76,23 +75,24 @@ if (Meteor.isClient) {
     }
   });
 
-  var init = true;
-  var handle = Messages.find().observe({
-    added: function (item) {
-      if (!init) {
-        var notifv = Session.get("notif");
-        notifv++;
-        Session.setPersistent("notif", notifv);
+  Tracker.autorun(function () {
+    var initializing = true;
+    Messages.find().observe({
+      added: function (item) {
+        if (!initializing) {
+          var notifv = Session.get("notif");
+          notifv++;
+          Session.setPersistent("notif", notifv);
+        }
       }
+    });
+    initializing = false;
+    if (Session.get("notif") == 0) {
+      document.title = "MewChat";
+    } else {
+      document.title = "("+Session.get("notif")+") MewChat";
     }
   });
-  init = false;
-
-  if (Session.get("notif") == 0) {
-    document.title = "MewChat";
-  } else {
-    document.title = "("+Session.get("notif")+") MewChat";
-  }
 }
 
 if (Meteor.isServer) {
