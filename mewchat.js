@@ -82,7 +82,7 @@ if (Meteor.isClient) {
     //init is needed because we have to wait for the first
     //messages to be loaded first
     var initializing = true;
-    Messages.find().observe({
+    Messages.find({}, {sort: {sentAt: -1}, limit: 30}).observe({
       added: function (item) {
         if (!initializing) {
           var notifv = Session.get("notif");
