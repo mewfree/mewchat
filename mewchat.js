@@ -80,7 +80,7 @@ if (Meteor.isClient) {
 
   Template.write.rendered = function() {
     Session.setPersistent("notif", 0);
-  });
+  };
 
   Tracker.autorun(function () {
     //init is needed because we have to wait for the first
