@@ -26,6 +26,7 @@ if (Meteor.isClient) {
   });
 
   Template.chat.events({
+    //when a user have action near the chat, clear the notif count
     "click, focus, keypress": function (event) {
       Session.setPersistent("notif", 0);
     }
@@ -76,6 +77,8 @@ if (Meteor.isClient) {
   });
 
   Tracker.autorun(function () {
+    //init is needed because we have to wait for the first
+    //messages to be loaded first
     var initializing = true;
     Messages.find().observe({
       added: function (item) {
@@ -83,13 +86,16 @@ if (Meteor.isClient) {
           var notifv = Session.get("notif");
           notifv++;
           Session.setPersistent("notif", notifv);
+          //if new message, we increment the previous notif count
         }
       }
     });
     initializing = false;
+
     if (Session.get("notif") == 0) {
       document.title = "MewChat";
     } else {
+      //showing the number of unread messages
       document.title = "("+Session.get("notif")+") MewChat";
     }
   });
