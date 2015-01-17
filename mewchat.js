@@ -22,7 +22,6 @@ if (Meteor.isClient) {
       //from newer to older (common practice in webchats) so we fetch and
       //reverse the array!
       return Messages.find({}, {sort: {sentAt: -1}, limit: 30}).fetch().reverse();
-      Session.setPersistent("notif", 0)
     }
   });
 
