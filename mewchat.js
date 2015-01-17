@@ -27,6 +27,8 @@ if (Meteor.isClient) {
   });
   init = false;
 
+  document.title = "("+Session.get("notif")+") MewChat";
+
   Template.chat.helpers({
     messages: function () {
       //we're looking for the last 25 messages, so we have to sort from
