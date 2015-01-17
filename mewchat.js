@@ -79,7 +79,7 @@ if (Meteor.isClient) {
   });
 
   Template.write.rendered({
-    Session.setPersistent("notif", 0)
+    Session.setPersistent("notif", 0);
   });
 
   Tracker.autorun(function () {
