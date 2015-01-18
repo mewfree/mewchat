@@ -1,40 +1,10 @@
 @green: #00FF00;
 @black: #000000;
-@footerheight: 30px;
-
-html, body {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-}
 
 body {
   background-color: @black;
   font-family: monospace;
   color: @green;
-}
-
-.container {
-  min-height: 100%;
-  position: relative;
-}
-
-.header {
-  padding: 0px;
-}
-
-.body {
-  padding: 0px;
-  padding-bottom: @footerheight;
-}
-
-.footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: @footerheight;
-  text-align: center;
-  size: 8px;
 }
 
 h1 {
@@ -69,6 +39,11 @@ li strong:hover .anon {
 
 .writeform, .regen {
   text-align: center;
+}
+
+.footer {
+  text-align: center;
+  size: 8px;
 }
 
 a:link, a:visited, a:hover, a:active {
