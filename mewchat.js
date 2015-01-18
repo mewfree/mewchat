@@ -17,8 +17,8 @@ if (Meteor.isClient) {
 
   Template.chat.helpers({
     messages: function () {
-      //we're looking for the last 25 messages, so we have to sort from
-      //older to newer, and limit the result to 25, but we still want it
+      //we're looking for the last n messages, so we have to sort from
+      //older to newer, and limit the result to n, but we still want it
       //from newer to older (common practice in webchats) so we fetch and
       //reverse the array!
       return Messages.find({}, {sort: {sentAt: -1}, limit: 30}).fetch().reverse();
@@ -87,6 +87,10 @@ if (Meteor.isClient) {
   Template.write.helpers({
     nick: function () {
       return Session.get("nick");
+    },
+
+    color: function () {
+      return Session.get("color");
     }
   });
 
