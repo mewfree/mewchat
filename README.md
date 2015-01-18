@@ -31,3 +31,4 @@ To-do:
 * Create multiple chatrooms
 * Let users choose a color
 * Let users choose how many messages they want to see
+* Makes http messages clickables links
