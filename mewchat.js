@@ -40,7 +40,7 @@ if (Meteor.isClient) {
       Session.setPersistent("nick", event.target.author.value);
       //users can stay anonymous, if so, randomize a author name
       if (event.target.author.value == "") {
-        var author = anon;
+        var author = anon.slice(0,8);
       } else {
         var author = event.target.author.value;
       }
