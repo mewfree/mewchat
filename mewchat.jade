@@ -10,8 +10,7 @@ body
 
   .footer
     p
-      by MewFree - 2015 - Source code available on 
-        a(href='https://github.com/mewfree/mewchat') GitHub
+     | <p>by MewFree - 2015 - Source code available on <a href="https://github.com/mewfree/mewchat">GitHub</a></p>
 
 template(name="chat")
   ul
@@ -21,11 +20,7 @@ template(name="chat")
   +write
 
 template(name="message")
-  li(style="color:#{color}")
-    strong
-      #{author}
-        .anon(style="background-color:#{color}") #{anon}
-          (#{sentAtH}:#{sentAtM}): #{text}
+  | <li style="color:{{color}}"><strong>{{author}}<div style="background-color:{{color}}" class="anon">{{anon}}</div></strong> ({{sentAtH}}:{{sentAtM}}): {{text}}</li>
 
 template(name="write")
   .writeform
