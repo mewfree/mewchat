@@ -8,7 +8,7 @@ if (Meteor.isClient) {
   Session.setDefaultPersistent("notif", 0);
 
   if (Session.get("anon") == "") {
-    Session.setPersistent("anon", Math.random().toString(36).substring(7));
+    Session.setPersistent("anon", Random.id());
   }
 
   if (Session.get("color") == "") {
