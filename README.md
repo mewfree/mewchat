@@ -2,7 +2,7 @@
 Trying to make a simple webchat in Meteor
 
 
-Live demo: http://188.165.61.14:4500/
+Live demo: http://mewchat.meteor.com/
 
 Features:
 * Reactive webchat built in Meteor
@@ -11,7 +11,7 @@ Features:
 * Uses https://github.com/okgrow/meteor-persistent-session for persistent sessions (across pages reload)
 * Uses https://github.com/davidmerfield/randomColor for random green color
 * Uses https://github.com/mizzao/meteor-timesync to get server time due to issues with clients not in sync
-* Number of unread messages is shown in the <title>
+* Number of unread messages is shown in the title tag
 
 
 To-do:
