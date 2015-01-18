@@ -48,9 +48,9 @@ if (Meteor.isClient) {
       //date stuff
       var date = new Date();
       var dateh = date.getHours();
-      var dateh = ("0" + dateh).slice(-2);
+      dateh = ("0" + dateh).slice(-2);
       var datem = date.getMinutes();
-      var datem = ("0" + datem).slice(-2);
+      datem = ("0" + datem).slice(-2);
 
       //if message is not blank, insert in db
       if (text != "") {
