@@ -24,7 +24,6 @@ insecure@1.0.2
 jquery@1.0.2
 json@1.0.2
 launch-screen@1.0.1
-less@1.0.12
 livedata@1.0.12
 logging@1.0.6
 meteor@1.1.4
@@ -45,6 +44,7 @@ routepolicy@1.0.3
 session@1.0.5
 spacebars@1.0.4
 spacebars-compiler@1.0.4
+stylus@1.0.6
 templating@1.0.10
 tracker@1.0.4
 u2622:persistent-session@0.2.1
