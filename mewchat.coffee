@@ -97,8 +97,6 @@ if Meteor.isClient
     #messages to be loaded first
     initializing = true
     Messages.find().observe added: (item) ->
-      elem = document.getElementByClassName("messages")
-      elem.scrollTop = elem.scrollHeight
       unless initializing
         notifv = Session.get("notif")
         notifv++
@@ -114,6 +112,8 @@ if Meteor.isClient
       
       #showing the number of unread messages
       document.title = "(" + Session.get("notif") + ") MewChat"
+      elem = document.getElementByClassName("messages")
+      elem.scrollTop = elem.scrollHeight
     return
 
 if Meteor.isServer
