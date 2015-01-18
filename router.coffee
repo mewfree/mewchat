@@ -1,3 +1,3 @@
 Router.map ->
-  @route 'Home',
+  @route 'mewchat',
     path: '/'
