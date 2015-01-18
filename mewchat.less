@@ -46,22 +46,14 @@ li strong:hover .anon {
   size: 8px;
 }
 
-a:link .footer {
+a:link, a:visited, a:hover, a:active {
   color: @green;
+}
+
+a:link, a:visited {
   text-decoration: none;
 }
 
-a:visited .footer {
-  color: @green;
-  text-decoration: none;
-}
-
-a:hover .footer {
-  color: @green;
-  text-decoration: underline;
-}
-
-a:active .footer {
-  color: @green;
+a:hover, a:active {
   text-decoration: underline;
 }
