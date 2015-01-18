@@ -112,7 +112,7 @@ if Meteor.isClient
       
       #showing the number of unread messages
       document.title = "(" + Session.get("notif") + ") MewChat"
-      elem = document.getElementByClassName("messages")
+      elem = document.getElementById("msg")
       elem.scrollTop = elem.scrollHeight
     return
 
