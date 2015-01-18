@@ -1,0 +1,57 @@
+head
+  title MewChat
+
+body
+  h1 Welcome to MewChat!
+
+  +chat
+
+  +regen
+
+  .footer
+    p by MewFree - 2015 - Source code available on a(href='https://github.com/mewfree/mewchat') GitHub
+
+template(name="chat")
+  ul
+    each messages
+
+  +write
+
+template(name="message")
+  li(style="color:#{color}")
+    strong
+      #{author}
+        div(class="anon" style="background-color:#{color}")
+          #{anon}
+     (#{sentAtH}:#{sentAtM}): #{text}
+
+template(name="write")
+  .writeform
+    form.new-message
+      input(
+        type='text'
+        name='author'
+        maxlength='25'
+        size='10'
+        value='#{nick}'
+        style='color:#{color}'
+        placeholder='Type your nick'
+      )
+
+      input(
+        type='text'
+        name='text'
+        maxlength='250'
+        size='80%'
+        style='color:#{color}'
+        placeholder='Type your message'
+      )
+
+      input(type='submit' value='Send')
+
+    p (leave the nickname field blank to remain anonymous)
+
+template(name="regen")
+  .regen
+    button(type="button" class="regencolor")
+  //- <button type="button" class="regenid">Regenerate my ID</button>
