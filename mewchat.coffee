@@ -106,13 +106,15 @@ if Meteor.isClient
     
     #if new message, we increment the previous notif count
     initializing = false
-    elem = document.getElementById("msg")
-    elem.scrollTop = elem.scrollHeight
     if Session.get("notif") is 0
+      elem = document.getElementById("msg")
+      elem.scrollTop = elem.scrollHeight
       document.title = "MewChat"
     else
       
       #showing the number of unread messages
+      elem = document.getElementById("msg")
+      elem.scrollTop = elem.scrollHeight
       document.title = "(" + Session.get("notif") + ") MewChat"
     return
 
