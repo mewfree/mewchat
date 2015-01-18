@@ -16,6 +16,7 @@ body
 template(name="chat")
   ul
     each messages
+      +message
 
   +write
 
@@ -23,9 +24,8 @@ template(name="message")
   li(style="color:#{color}")
     strong
       #{author}
-        div(class="anon" style="background-color:#{color}")
-          #{anon}
-    (#{sentAtH}:#{sentAtM}): #{text}
+        .anon(style="background-color:#{color}") #{anon}
+          (#{sentAtH}:#{sentAtM}): #{text}
 
 template(name="write")
   .writeform
@@ -55,5 +55,5 @@ template(name="write")
 
 template(name="regen")
   .regen
-    button(type="button" class="regencolor")
+    button.regencolor(type="button") Regenerate my color
   //- <button type="button" class="regenid">Regenerate my ID</button>
