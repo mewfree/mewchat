@@ -2,9 +2,7 @@
 Trying to make a simple webchat in Meteor
 
 
-Live demo: http://mewchat.meteor.com/ (managed by a third party)
-
-http://188.165.61.14:4500/ (dev)
+Live demo: http://chat.mewfree.com
 
 
 Misc:
