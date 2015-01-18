@@ -78,6 +78,16 @@ if (Meteor.isClient) {
     }
   });
 
+  Template.regen.events({
+    'click .regencolor': function (event) {
+      Session.setPersistent("color", randomColor({hue: 'green'}));
+    },
+
+    'click .regenid': function (event) {
+      Session.setPersistent("anon", Random.id());
+    }
+  });
+
   Tracker.autorun(function () {
     //init is needed because we have to wait for the first
     //messages to be loaded first
