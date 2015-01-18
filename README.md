@@ -5,6 +5,9 @@ Trying to make a simple webchat in Meteor
 Live demo: http://mewchat.meteor.com/ (managed by a third party)
 http://188.165.61.14:4500/ (dev)
 
+
+The time displayed next to each message is the poster's local time. This is a feature, not a bug.
+
 Features:
 * Reactive webchat built in Meteor
 * Anonymous mode
