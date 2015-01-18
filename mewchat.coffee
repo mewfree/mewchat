@@ -98,6 +98,8 @@ if Meteor.isClient
     initializing = true
     Messages.find().observe added: (item) ->
       unless initializing
+        elem = document.getElementByClassName("messages")
+        elem.scrollTop = elem.scrollHeight
         notifv = Session.get("notif")
         notifv++
         Session.setPersistent "notif", notifv
