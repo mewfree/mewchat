@@ -1,0 +1,62 @@
+textcolor = #00FF00
+backgroundcolor = #000000
+
+body
+  background-color backgroundcolor
+  font-family monospace
+  color textcolor
+
+h1
+  text-align center
+
+input
+  background backgroundcolor
+  color textcolor
+  border 0px solid
+  outline-color textcolor
+  padding 5px
+  height 20px
+
+.anon
+  display none
+  position absolute
+  background-color textcolor
+  color backgroundcolor
+  padding 2px
+  margin-top -36px
+
+ul li
+  list-style-type none
+
+li strong:hover .anon
+  display block
+
+.writeform, .regen
+  text-align center
+
+.footer
+  text-align center
+  size 8px
+
+a:link, a:visited, a:hover, a:active
+  color textcolor
+
+a:link, a:visited
+  text-decoration none
+
+a:hover, a:active
+  text-decoration underline
+
+button
+  -webkit-border-radius 5
+  -moz-border-radius 5
+  border-radius 5px
+  border 0px
+  color backgroundcolor
+  background darken(textcolor, 30%)
+  padding 5px 10px 5px 10px
+  text-decoration none
+
+button:hover
+  background darken(textcolor, 10%)
+  text-decoration none
