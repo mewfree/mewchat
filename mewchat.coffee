@@ -25,7 +25,7 @@ if Meteor.isClient
     ).fetch().reverse()
 
   Template.chat.rendered ->
-    elem.scrollTop = elem.scrollHeight
+    setTimeout(elem.scrollTop = elem.scrollHeight, 5000)
 
 
   #when a user have action near the chat, clear the notif count
