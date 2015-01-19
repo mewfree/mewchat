@@ -9,8 +9,6 @@ if Meteor.isClient
   Session.setPersistent "anon", Random.id()  if Session.get("anon") is ""
   Session.setPersistent "color", randomColor(hue: "green")  if Session.get("color") is ""
 
-  elem = document.getElementById("msg")
-
   Template.chat.helpers messages: ->
 
     #we're looking for the last n messages, so we have to sort from
@@ -23,9 +21,6 @@ if Meteor.isClient
 
       limit: 50
     ).fetch().reverse()
-
-  Template.chat.rendered ->
-    setTimeout(elem.scrollTop = elem.scrollHeight, 5000)
 
 
   #when a user have action near the chat, clear the notif count
@@ -120,7 +115,8 @@ if Meteor.isClient
 
       #showing the number of unread messages
       document.title = "(" + Session.get("notif") + ") MewChat"
-      #elem.scrollTop = elem.scrollHeight
+      elem = document.getElementById("msg")
+      elem.scrollTop = elem.scrollHeight
     return
 
 if Meteor.isServer
