@@ -19,7 +19,7 @@ if Meteor.isClient
       sort:
         sentAt: -1
 
-      limit: 50
+      limit: 100
     ).fetch().reverse()
 
 
