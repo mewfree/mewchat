@@ -1,6 +1,6 @@
 Messages = new Mongo.Collection("messages")
 if Meteor.isClient
-  
+
   #Sessions stuff...
   Session.setDefaultPersistent "anon", ""
   Session.setDefaultPersistent "color", ""
@@ -9,7 +9,7 @@ if Meteor.isClient
   Session.setPersistent "anon", Random.id()  if Session.get("anon") is ""
   Session.setPersistent "color", randomColor(hue: "green")  if Session.get("color") is ""
   Template.chat.helpers messages: ->
-    
+
     #we're looking for the last n messages, so we have to sort from
     #older to newer, and limit the result to n, but we still want it
     #from newer to older (common practice in webchats) so we fetch and
@@ -21,7 +21,7 @@ if Meteor.isClient
       limit: 50
     ).fetch().reverse()
 
-  
+
   #when a user have action near the chat, clear the notif count
   Template.chat.events "click, focus, keypress": (event) ->
     Session.setPersistent "notif", 0
@@ -32,7 +32,7 @@ if Meteor.isClient
     anon = Session.get("anon")
     color = Session.get("color")
     Session.setPersistent "nick", event.target.author.value
-    
+
     #users can stay anonymous, if so, randomize a author name
     if event.target.author.value is ""
       author = anon.slice(0, 8)
@@ -106,15 +106,16 @@ if Meteor.isClient
     
     #if new message, we increment the previous notif count
     initializing = false
+
     elem = document.getElementById("msg")
-    elem.scrollTop = elem.scrollHeight
 
     if Session.get("notif") is 0
       document.title = "MewChat"
     else
-      
+
       #showing the number of unread messages
       document.title = "(" + Session.get("notif") + ") MewChat"
+      elem.scrollTop = elem.scrollHeight
     return
 
 if Meteor.isServer
