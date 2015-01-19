@@ -23,6 +23,8 @@ if Meteor.isClient
 
       limit: 50
     ).fetch().reverse()
+
+  Template.chat.rendered ->
     elem.scrollTop = elem.scrollHeight
 
 
