@@ -19,10 +19,11 @@ input
   height 20px
 
 .messages
-  width 100px
   margin 0 auto
   overflow-y scroll
   word-wrap break-word
+  @media (min-width 1050px)
+    width 1000px
   for i in 8..40
     @media (min-height 50px*i)
       height 38px*i
