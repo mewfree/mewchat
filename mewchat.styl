@@ -20,9 +20,9 @@ input
 .messages
   overflow-y scroll
   word-wrap break-word
-  for i in 2..8
-    @media (min-height 300px*i)
-      height 300px*(i-1)
+  for i in 8..40
+    @media (min-height 50px*i)
+      height 300-i*50px
 
 .anon
   display none
