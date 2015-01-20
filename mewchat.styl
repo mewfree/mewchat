@@ -19,16 +19,10 @@ input
 
 .messages
   overflow-y scroll
-  height 450px
   word-wrap break-word
-
-@media (min-height 600px)
-  .messages
-    height 500px
-
-@media (min-height 900px)
-  .messages
-    height 800px
+  for i in 2..8
+    @media (min-height i*300px)
+      height (i-1)*300px
 
 .anon
   display none
