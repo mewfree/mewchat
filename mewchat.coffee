@@ -71,6 +71,9 @@ if Meteor.isClient
     
     #no need for a notif on messages we send ourselves!
     Session.setPersistent "notif", 0
+    #and scroll to back
+    elem = document.getElementById("msg")
+    elem.scrollTop = elem.scrollHeight
     
     #clear the text field so the user can enter a new message
     event.target.text.value = ""
