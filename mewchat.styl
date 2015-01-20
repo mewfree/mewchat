@@ -21,8 +21,8 @@ input
   overflow-y scroll
   word-wrap break-word
   for i in 2..8
-    @media (min-height i*300px)
-      height (i-1)*300px
+    @media (min-height 300px*i)
+      height 300px*(i-1)
 
 .anon
   display none
