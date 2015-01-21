@@ -27,6 +27,7 @@ Features:
 To-do:
 ------
 * Create multiple chatrooms
+* Implement private messages
 * Let users choose a color
 * Let users choose how many messages they want to see
 * Makes http messages clickables links
